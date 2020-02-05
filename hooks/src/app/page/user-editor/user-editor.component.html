@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-12 col-md-4 offset-md-4 mt-3">
-    <form #form="ngForm" (ngSubmit)="onSave(form)">
+    <form #form="ngForm" (ngSubmit)="onSave(form)"
+      [appRangeValidator]="['minSalary', 'maxSalary']">
       <div class="form-group">
         <label for="">First Name</label>
         <input
@@ -8,23 +9,42 @@
           name="firstName"
           type="text"
           class="form-control"
-          required>
+          required
+          minlength="5">
+        <p class="validation-error" [hidden]="form.form.controls.firstName?.valid || form.form.controls.firstName?.untouched">
+          First name must be minimum 5 chars length.
+        </p>
       </div>
       <div class="form-group">
         <label for="">Last Name</label>
         <input
+          #lastN="ngModel"
           [(ngModel)]="user.lastName"
           name="lastName"
           type="text"
           class="form-control"
-          required>
+          required
+          maxlength="20">
+        <p class="validation-error" [hidden]="lastN.valid || lastN.untouched">
+          Last name is required and must be maximum 20 characters.
+        </p>
       </div>
       <div class="form-group">
         <label for="">Email</label>
         <input
           [(ngModel)]="user.email"
           name="email"
-          type="text"
+          type="email"
+          class="form-control"
+          required
+          email>
+      </div>
+      <div class="form-group">
+        <label for="">Password</label>
+        <input
+          [(ngModel)]="user.password"
+          name="password"
+          type="password"
           class="form-control"
           required>
       </div>
@@ -36,11 +56,36 @@
       <div class="form-group">
         <label for="">Address</label>
         <input [(ngModel)]="user.address" name="address" type="text"
-          class="form-control">
+          class="form-control"
+          pattern="^[0-9]{4}\s[a-űA-Ű0-9\s\.\,\-\/]{10,100}$">
         </div>
-      <button
+
+        <!-- Cross field validation. -->
+        <div class="form-group">
+          <label for="">Min. Salary</label>
+          <input #minS="ngModel" name="minSalary" [(ngModel)]="user.minSalary"
+            type="number" class="form-control"
+            [appInputDebounce]="minS">
+          <p class="validation-error" [hidden]="!form.errors?.rangeError">
+            {{ form.errors?.rangeError }}
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="">Max. Salary</label>
+          <input #maxS="ngModel" name="maxSalary" [(ngModel)]="user.maxSalary"
+            type="number" class="form-control"
+            [ngModelOptions]="{updateOn: 'blur'}">
+          <p class="validation-error" [hidden]="!form.errors?.rangeError">
+            {{ form.errors?.rangeError }}
+          </p>
+        </div>
+
+        <button
         [disabled]="form.invalid" type="submit" class="btn btn-lg btn-block btn-primary">Save</button
         >
+        <p class="validation-error" [hidden]="form.valid">
+          Please check the form.
+        </p>
     </form>
   </div>
 </div>

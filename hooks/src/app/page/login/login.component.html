@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-12 col-md-4 offset-md-4 mt-5">
+    <form #form="ngForm" (ngSubmit)="onLogin(form)">
+      <div class="form-group">
+        <label for="">Email</label>
+        <input [(ngModel)]="user.email" type="email"
+          name="email" class="form-control" email required>
+      </div>
+      <div class="form-group">
+        <label for="">Password</label>
+        <input [(ngModel)]="user.password" type="password"
+          name="password" class="form-control" required>
+      </div>
+      <button [disabled]="form.invalid" type="submit" class="btn btn-block btn-primary">
+        login
+      </button>
+    </form>
+  </div>
+</div>

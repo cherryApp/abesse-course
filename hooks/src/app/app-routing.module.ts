@@ -3,12 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './page/home/home.component';
 import { UsersComponent } from './page/users/users.component';
 import { UserEditorComponent } from './page/user-editor/user-editor.component';
+import { LoginComponent } from './page/login/login.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'users',
@@ -29,9 +34,15 @@ const routes: Routes = [
     }
   },
   {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then(
+      m => m.SettingsModule
+    )
+  },
+  {
     path: '**',
     redirectTo: ''
-  }
+  },
 ];
 
 @NgModule({

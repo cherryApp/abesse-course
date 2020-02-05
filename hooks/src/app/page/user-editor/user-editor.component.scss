@@ -1,0 +1,11 @@
+.validation-error {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: red;
+}
+
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty
+select.ng-invalid.ng-dirty {
+  border-left: solid 5px red;
+}

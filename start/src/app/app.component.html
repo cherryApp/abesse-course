@@ -1,0 +1,14 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-form-control (changed)="user.name = $event" [inputValue]="user.name"></app-form-control>
+      <app-form-control [inputValue]="user.email"></app-form-control>
+      <app-form-control [inputValue]="user.age"></app-form-control>
+      <app-form-control [inputValue]="user.gender"></app-form-control>
+      <button (click)="onUserClickedOnMyAwesomeButton(user)" class="btn btn-primary btn-block">Küldés</button>
+    </div>
+  </div>
+</div>
+
+{{ user | json }}

@@ -4,20 +4,25 @@
       "firstName": "Ashby",
       "lastName": "Parrot",
       "email": "aparrot0@mozilla.org",
-      "password": "$2a$10$tzZrtNZpnlxNY/yWJe.QDu96RmQHUb8VJ1ZuqwWSSfSApJ9AdlpEm",
+      "password": "$2a$10$lk7bb3fJNmzln.rgakvGB.f5ZAgVetTFdgFqB0IvKoiGSK4E/Hk4S",
       "gender": "Male",
       "address": "6000 Northridge Way",
       "minSalary": 1,
       "maxSalary": 10,
+      "role": "3",
       "id": 1
     },
     {
-      "id": 3,
       "firstName": "Jdavie",
       "lastName": "Yurkiewicz",
       "email": "jyurkiewicz2@github.com",
+      "password": "$2a$10$Bsx.HeJNFCEzAT2eCs/OgO0DOvFLYNV5PN7.FjFJ7jXLotLnezvKa",
       "gender": "Male",
-      "address": "7 Morningstar Lane"
+      "address": "7000 Morningstar Lane",
+      "minSalary": 1,
+      "maxSalary": 100,
+      "role": "2",
+      "id": 3
     },
     {
       "id": 6,
@@ -28,12 +33,16 @@
       "address": "9 Hollow Ridge Center"
     },
     {
-      "id": 7,
       "firstName": "Casar",
       "lastName": "Godby",
       "email": "cgodby6@surveymonkey.com",
+      "password": "$2a$10$80Cn4zMnZU8ziMLqMTOQS.Nfn4/kNhQgHH0uimoAXxXK4OElYNJYS",
       "gender": "Male",
-      "address": "22531 Ramsey Way"
+      "address": "2253 Ramsey Way",
+      "minSalary": 1,
+      "maxSalary": 100,
+      "role": "1",
+      "id": 7
     },
     {
       "id": 8,

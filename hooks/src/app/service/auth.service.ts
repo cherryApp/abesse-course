@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, of, Observable } from 'rxjs';
 import { User } from '../model/user';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap, catchError } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 
@@ -26,10 +26,18 @@ export class AuthService {
     this.currentUserSubject.next( JSON.parse(localUser) );
   }
 
+  catchLoginError(operation: string, result?: any) {
+    return (error: any): Observable<any> => {
+      return of(result);
+    };
+  }
+
   login(email: string, password: string) {
     return this.http.post<{ accessToken: string }>(
       this.loginUrl,
       {email, password}
+    ).pipe(
+      catchError( this.catchLoginError('postLogin', []) )
     ).pipe( switchMap( response => {
       if (response.accessToken) {
         this.lastToken = response.accessToken;

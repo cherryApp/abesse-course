@@ -12,6 +12,7 @@ import { User } from 'src/app/model/user';
 export class LoginComponent implements OnInit {
 
   user: User = new User();
+  loginError = false;
 
   constructor(
     private auth: AuthService,
@@ -19,12 +20,19 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.auth.currentUserSubject.subscribe(
+      user => {
+        if (user) {
+          this.router.navigate(['']);
+        }
+      }
+    );
   }
 
   onLogin(ngForm: NgForm): void {
     const {email, password} = ngForm.value;
     this.auth.login(email, password).toPromise().then(
-      success => this.router.navigate(['']),
+      success => this.loginError = success == null,
       err => alert('Incorrect login data!')
     );
   }

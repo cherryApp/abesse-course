@@ -9,4 +9,5 @@ export class User {
   minSalary?: number;
   maxSalary?: number;
   token?: string;
+  role?: number;
 }

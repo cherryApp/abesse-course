@@ -79,6 +79,15 @@
             {{ form.errors?.rangeError }}
           </p>
         </div>
+        <div class="form-group">
+          <label for="">Role</label>
+          <select #role="ngModel" name="role" [(ngModel)]="user.role"
+            class="form-control" required>
+              <option *ngFor="let role of [1,2,3]; index as i" [selected]="i == 0" [value]="role">
+                {{ role }}
+              </option>
+          </select>
+        </div>
 
         <button
         [disabled]="form.invalid" type="submit" class="btn btn-lg btn-block btn-primary">Save</button

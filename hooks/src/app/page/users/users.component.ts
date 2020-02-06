@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     {key: 'lastName', label: 'Lname', type: 'text'},
     {key: 'email', label: 'Email', type: 'email'},
     {key: 'address', label: 'Add.', type: 'text'},
+    {key: 'role', label: 'Role', type: 'text'},
   ];
 
   constructor(

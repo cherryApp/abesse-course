@@ -37,7 +37,8 @@
           type="email"
           class="form-control"
           required
-          email>
+          email
+          [appServerValidator]="user.id">
       </div>
       <div class="form-group">
         <label for="">Password</label>

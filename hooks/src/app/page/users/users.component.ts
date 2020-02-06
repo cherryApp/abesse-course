@@ -1,28 +1,30 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+// tslint:disable: no-console
+import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { Subscription, Subject } from 'rxjs';
 import { User } from 'src/app/model/user';
+import { ConfigService } from 'src/app/service/config.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit, OnDestroy {
+export class UsersComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   listSubscription: Subscription;
-  list$: Subject<User | User[]> = this.userService.list$;
-  cols: {key: string, label: string, type: string}[] = [
-    {key: 'id', label: '#', type: 'plain'},
-    {key: 'firstName', label: 'Fname', type: 'text'},
-    {key: 'lastName', label: 'Lname', type: 'text'},
-    {key: 'email', label: 'Email', type: 'email'},
-    {key: 'address', label: 'Add.', type: 'text'},
-    {key: 'role', label: 'Role', type: 'text'},
-  ];
+  list$ = this.userService.list$.pipe(
+    tap( data => {
+      console.time('table');
+    })
+  );
+  cols: any[] = this.config.settings$.value.userTable;
+  page = 1;
 
   constructor(
     private userService: UserService,
+    private config: ConfigService,
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,22 @@ export class UsersComponent implements OnInit, OnDestroy {
       resolve => alert('Delete opeartion successful.'),
       reject => console.error(reject)
     );
+  }
+
+  trackByFn(index, row) {
+    return row.id;
+  }
+
+  ngAfterViewChecked() {
+    console.timeEnd('table');
+  }
+
+  incrementPage() {
+    this.page++;
+  }
+
+  onPageChange(event: number): void {
+    this.page = event;
   }
 
 }

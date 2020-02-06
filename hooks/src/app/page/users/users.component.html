@@ -6,7 +6,13 @@
   </div>
 </div>
 
-<table class="table mt-3">
+<div class="row">
+  <div class="col-12 mt-2">
+    <app-paginator [page]="page" [list$]="list$" (changePage)="onPageChange($event)"></app-paginator>
+  </div>
+</div>
+
+<table class="table mt-1">
   <thead>
     <tr>
       <th *ngFor="let col of cols">{{ col.label }}</th>
@@ -14,8 +20,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of list$ | async">
-      <td *ngFor="let col of cols">
+    <tr *ngFor="let user of list$ | async | lazyLoad:page:25; trackBy: trackByFn">
+      <td *ngFor="let col of cols; trackBy: trackByFn">
         <div [ngSwitch]="col.type">
           <span *ngSwitchCase="'plain'">{{ user[col.key] }}</span>
           <input [(ngModel)]="user[col.key]" *ngSwitchCase="'text'" type="text" class="form-control">
@@ -31,3 +37,11 @@
     </tr>
   </tbody>
 </table>
+<div class="row">
+  <div class="col-12 mt-1 mb-5">
+    <!-- <button (click)="incrementPage()" class="btn btn-info btn-block">
+      more
+    </button> -->
+    <app-paginator [page]="page" [list$]="list$" (changePage)="onPageChange($event)"></app-paginator>
+  </div>
+</div>

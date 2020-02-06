@@ -1,4 +1,40 @@
 {
+  "settings": {
+    "theme": "dark",
+    "timeZone": 2,
+    "userTable": [
+      {
+        "key": "id",
+        "label": "#",
+        "type": "plain"
+      },
+      {
+        "key": "firstName",
+        "label": "Fname",
+        "type": "text"
+      },
+      {
+        "key": "lastName",
+        "label": "Lname",
+        "type": "text"
+      },
+      {
+        "key": "role",
+        "label": "Role",
+        "type": "text"
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email"
+      },
+      {
+        "key": "address",
+        "label": "Add.",
+        "type": "text"
+      }
+    ]
+  },
   "users": [
     {
       "firstName": "Ashby",
@@ -23,14 +59,6 @@
       "maxSalary": 100,
       "role": "2",
       "id": 3
-    },
-    {
-      "id": 6,
-      "firstName": "Dasya",
-      "lastName": "Tabbernor",
-      "email": "dtabbernor5@about.com",
-      "gender": "Female",
-      "address": "9 Hollow Ridge Center"
     },
     {
       "firstName": "Casar",
@@ -99,14 +127,6 @@
       "email": "mivashine@dagondesign.com",
       "gender": "Male",
       "address": "48 Kropf Hill"
-    },
-    {
-      "id": 16,
-      "firstName": "Linoel",
-      "lastName": "Ghidini",
-      "email": "lghidinif@guardian.co.uk",
-      "gender": "Male",
-      "address": "8292 Drewry Avenue"
     },
     {
       "id": 17,

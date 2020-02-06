@@ -14,6 +14,7 @@ import { InputDebounceDirective } from './common/input-debounce/input-debounce.d
 import { ServerValidatorDirective } from './common/server-validator/server-validator.directive';
 import { LoginComponent } from './page/login/login.component';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
+import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { JwtInterceptorService } from './service/jwt-interceptor.service';
     RangeValidatorDirective,
     InputDebounceDirective,
     ServerValidatorDirective,
-    LoginComponent
+    LoginComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

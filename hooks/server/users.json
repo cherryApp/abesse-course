@@ -46,6 +46,7 @@
       "minSalary": 1,
       "maxSalary": 10,
       "role": "3",
+      "active": true,
       "id": 1
     },
     {

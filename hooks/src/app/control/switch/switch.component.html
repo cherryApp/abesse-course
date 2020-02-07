@@ -1,0 +1,11 @@
+<div
+  (click)="onSwitchChange()"
+  class="frame"
+>
+  <div
+    [style.margin-left]="value + 'em'"
+    class="switch"
+    [class.checked]="value === 2"
+    [class.unchecked]="value === 0"
+  ></div>
+</div>

@@ -34,7 +34,7 @@ export class PaginatorComponent implements OnInit {
   }
 
   step(dir: number): void {
-    if ( (dir < 0 && this.currentPage === 0) || (this.currentPage >= this.pages.length)) {
+    if ( (dir < 0 && this.currentPage === 0) || (dir > 0 && this.currentPage === this.pages.length - 1)) {
       return;
     }
     this.currentPage += dir;

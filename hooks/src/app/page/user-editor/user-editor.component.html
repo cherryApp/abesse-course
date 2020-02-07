@@ -90,6 +90,14 @@
           </select>
         </div>
 
+        <!-- CVA example. -->
+        <div class="form-group">
+          <label for="">Active</label>
+          <div>
+            <app-switch name="active" [(ngModel)]="user.active"></app-switch>
+          </div>
+        </div>
+
         <button
         [disabled]="form.invalid" type="submit" class="btn btn-lg btn-block btn-primary">Save</button
         >

@@ -10,4 +10,5 @@ export class User {
   maxSalary?: number;
   token?: string;
   role?: number;
+  active?: boolean;
 }

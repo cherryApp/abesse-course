@@ -18,6 +18,7 @@ import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 import { ConfigService } from './service/config.service';
 import { LazyLoadPipe } from './pipe/lazy-load.pipe';
 import { PaginatorComponent } from './common/paginator/paginator.component';
+import { SwitchComponent } from './control/switch/switch.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PaginatorComponent } from './common/paginator/paginator.component';
     LoginComponent,
     ForbiddenComponent,
     LazyLoadPipe,
-    PaginatorComponent
+    PaginatorComponent,
+    SwitchComponent
   ],
   imports: [
     BrowserModule,
